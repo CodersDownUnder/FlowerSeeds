@@ -1,0 +1,44 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "tulip_white",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:tulip_white_seed"
+          ]
+        },
+        "criteria": {
+          "Tulip_White": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "item": "minecraft:white_tulip"
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:tulip_white_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "Tulip_White",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

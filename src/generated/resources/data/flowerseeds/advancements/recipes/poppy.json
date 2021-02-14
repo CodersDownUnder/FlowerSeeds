@@ -1,0 +1,44 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "poppy",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:poppy_seed"
+          ]
+        },
+        "criteria": {
+          "Poppy": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "item": "minecraft:poppy"
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:poppy_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "Poppy",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

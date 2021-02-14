@@ -1,0 +1,44 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "tulip_orange",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:tulip_orange_seed"
+          ]
+        },
+        "criteria": {
+          "Tulip_Orange": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "item": "minecraft:orange_tulip"
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:tulip_orange_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "Tulip_Orange",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

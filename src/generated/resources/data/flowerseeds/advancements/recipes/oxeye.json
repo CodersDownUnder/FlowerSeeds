@@ -1,0 +1,44 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "oxeye",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:oxeye_seed"
+          ]
+        },
+        "criteria": {
+          "Oxeye": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "item": "minecraft:oxeye_daisy"
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:oxeye_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "Oxeye",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "orchid",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds:flower_seed1",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat_seeds"
+          },
+          {
+            "item": "minecraft:blue_orchid"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:orchid_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

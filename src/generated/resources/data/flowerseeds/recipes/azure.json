@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "azure",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds:flower_seed3",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat_seeds"
+          },
+          {
+            "item": "minecraft:azure_bluet"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:azure_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

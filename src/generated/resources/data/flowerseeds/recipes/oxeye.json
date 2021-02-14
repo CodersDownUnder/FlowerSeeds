@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "oxeye",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds:flower_seed8",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat_seeds"
+          },
+          {
+            "item": "minecraft:oxeye_daisy"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:oxeye_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

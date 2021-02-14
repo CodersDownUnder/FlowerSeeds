@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "flowerseeds:blocks/lily_stage3"
+  }
+}

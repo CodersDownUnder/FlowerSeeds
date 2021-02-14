@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "flowerseeds:blocks/tulip_red_stage3"
+  }
+}

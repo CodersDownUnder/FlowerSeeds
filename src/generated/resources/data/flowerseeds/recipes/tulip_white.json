@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "tulip_white",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds:flower_seed6",
+        "ingredients": [
+          {
+            "item": "minecraft:wheat_seeds"
+          },
+          {
+            "item": "minecraft:white_tulip"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:tulip_white_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}
