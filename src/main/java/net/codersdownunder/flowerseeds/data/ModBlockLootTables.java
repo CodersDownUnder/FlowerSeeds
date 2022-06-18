@@ -2,7 +2,7 @@ package net.codersdownunder.flowerseeds.data;
 
 import java.util.stream.Collectors;
 
-import com.lothrazar.cyclic.registry.ItemRegistry;
+//import com.lothrazar.cyclic.registry.ItemRegistry;
 
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.blocks.SingleCropBlock;
@@ -42,7 +42,7 @@ public class ModBlockLootTables extends BlockLoot {
             add(BlockInit.CROP_TULIP_WHITE.get(), FlowerLootTableBuilder(BlockInit.CROP_TULIP_WHITE.get(), Items.WHITE_TULIP, ItemInit.TULIP_WHITE_SEED.get()));
             add(BlockInit.CROP_WITHERROSE.get(), FlowerLootTableBuilder(BlockInit.CROP_WITHERROSE.get(), Items.WITHER_ROSE, ItemInit.WITHERROSE_SEED.get()));
             
-            add(BlockInit.CROP_CYANROSE.get(), FlowerLootTableBuilder(BlockInit.CROP_CYANROSE.get(), ItemRegistry.FLOWER_CYAN.get(), ItemInit.CYANROSE_SEED.get()));
+            //add(BlockInit.CROP_CYANROSE.get(), FlowerLootTableBuilder(BlockInit.CROP_CYANROSE.get(), ItemRegistry.FLOWER_CYAN.get(), ItemInit.CYANROSE_SEED.get()));
             
             
 //            add(BlockInit.CROP_ALPINE_PINK.get(), noDrop());
@@ -90,7 +90,7 @@ public class ModBlockLootTables extends BlockLoot {
         @Override
         protected Iterable<Block> getKnownBlocks() {
             return ForgeRegistries.BLOCKS.getValues().stream()
-                    .filter(block -> FlowerSeeds.MODID.equals(block.getRegistryName().getNamespace()))
+                    .filter(block -> FlowerSeeds.MODID.equals(block.getName().getString(11)))
                     .collect(Collectors.toSet());
         }
 }

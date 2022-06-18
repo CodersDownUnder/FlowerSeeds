@@ -12,22 +12,19 @@ public class ModDataProviders {
 	 @SubscribeEvent
 	    public static void gatherData(GatherDataEvent event) {
 	        DataGenerator generator = event.getGenerator();
-	        if (event.includeServer()) {
-	            
+
 	            FlowerSeedsBlockTags blockTags = new FlowerSeedsBlockTags(generator, event.getExistingFileHelper());
-	            generator.addProvider(blockTags);
-	            generator.addProvider(new FlowerSeedsItemTags(generator, blockTags, event.getExistingFileHelper()));
-	            generator.addProvider(new FlowerSeedsRecipeProvider(generator));
-	            generator.addProvider(new LootTables(generator));
-	        }
-	        if (event.includeClient()) {
+	            generator.addProvider(event.includeServer(), blockTags);
+	            generator.addProvider(event.includeServer(), new FlowerSeedsItemTags(generator, blockTags, event.getExistingFileHelper()));
+	            generator.addProvider(event.includeServer(), new FlowerSeedsRecipeProvider(generator));
+	            generator.addProvider(event.includeServer(), new LootTables(generator));
+	
 	            //generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
 	            //generator.addProvider(new Items(generator, event.getExistingFileHelper()));
-	        	generator.addProvider(new FlowerSeedsLanguageProvider(generator));
+	        	generator.addProvider(event.includeClient(), new FlowerSeedsLanguageProvider(generator));
 	        	
 	        	//ItemModelProvider itemModels = new FlowerSeedsItemModels(generator, event.getExistingFileHelper());
 	            //generator.addProvider(itemModels);    
-	        }
+	        
 	    }
-	
 }

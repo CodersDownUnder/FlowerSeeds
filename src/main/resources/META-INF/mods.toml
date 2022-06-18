@@ -1,5 +1,5 @@
 modLoader="javafml" 
-loaderVersion="[40,)" 
+loaderVersion="[41,)" 
 license="LGPL 3.0"
 [[mods]]
 modId="flowerseeds" 
@@ -31,7 +31,7 @@ No longer do you need to spend several hours hunting large quantities of flowers
 [[dependencies.flowerseeds]] #optional
     modId="forge" 
     mandatory=true
-    versionRange="[40,)" #mandatory
+    versionRange="[41,)" #mandatory
     # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -40,7 +40,7 @@ No longer do you need to spend several hours hunting large quantities of flowers
 [[dependencies.flowerseeds]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18.2]"
+    versionRange="[1.19]"
     ordering="NONE"
     side="BOTH"
 

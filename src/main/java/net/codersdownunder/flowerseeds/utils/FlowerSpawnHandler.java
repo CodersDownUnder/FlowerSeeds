@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -20,7 +21,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class FlowerSpawnHandler {
 	
-	public static Random rand = new Random();
+	public static RandomSource rand = (RandomSource) new Random();
 	
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	public void onBone(BonemealEvent event) {
@@ -37,7 +38,7 @@ public class FlowerSpawnHandler {
         
         if (isGrassBlock(state)) {
             if (!world.isClientSide) {
-                Random random = world.random;
+                RandomSource random = world.random;
                 final int tries = 6;
                 final int range = 6;
                 boolean spawnedAnyFlower = false;
@@ -69,10 +70,10 @@ public class FlowerSpawnHandler {
     }
 	
 
-	    private void plantFlower(Level world, BlockPos pos, Random rand) {
+	    private void plantFlower(Level world, BlockPos pos, RandomSource rand2) {
 	        BlockState state;
 	        
-	        Block block = rand.nextInt(3) == 0 ? Blocks.TALL_GRASS : Blocks.FERN;
+	        Block block = rand2.nextInt(3) == 0 ? Blocks.TALL_GRASS : Blocks.FERN;
 			state = block.defaultBlockState();
 	  
 	        if (state.canSurvive(world, pos)) {

@@ -12,59 +12,58 @@ import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
  */
 public class FlagRecipeCondition implements ICondition {
 
-    private static final ResourceLocation NAME = new ResourceLocation(FlowerSeeds.MODID, "flag");
+	private static final ResourceLocation NAME = new ResourceLocation(FlowerSeeds.MODID, "flag");
 
-    private final FlagManager manager;
-    private final String flag;
+	private final FlagManager manager;
+	private final String flag;
 
-    public FlagRecipeCondition(FlagManager manager, String flag) {
+	public FlagRecipeCondition(FlagManager manager, String flag) {
 
-        this.manager = manager;
-        this.flag = flag;
-    }
+		this.manager = manager;
+		this.flag = flag;
+	}
 
-    @Override
-    public ResourceLocation getID() {
+	@Override
+	public ResourceLocation getID() {
 
-        return NAME;
-    }
+		return NAME;
+	}
 
-    @Override
-    public boolean test() {
+	// region SERIALIZER
+	public static class Serializer implements IConditionSerializer<FlagRecipeCondition> {
 
-        return manager.getFlag(flag);
-    }
+		private final FlagManager manager;
+		private final ResourceLocation location;
 
-    // region SERIALIZER
-    public static class Serializer implements IConditionSerializer<FlagRecipeCondition> {
+		public Serializer(FlagManager manager, ResourceLocation location) {
 
-        private final FlagManager manager;
-        private final ResourceLocation location;
+			this.manager = manager;
+			this.location = location;
+		}
 
-        public Serializer(FlagManager manager, ResourceLocation location) {
+		@Override
+		public void write(JsonObject json, FlagRecipeCondition value) {
 
-            this.manager = manager;
-            this.location = location;
-        }
+			json.addProperty("flag", value.flag);
+		}
 
-        @Override
-        public void write(JsonObject json, FlagRecipeCondition value) {
+		@Override
+		public FlagRecipeCondition read(JsonObject json) {
 
-            json.addProperty("flag", value.flag);
-        }
+			return new FlagRecipeCondition(manager, json.getAsJsonPrimitive("flag").getAsString());
+		}
 
-        @Override
-        public FlagRecipeCondition read(JsonObject json) {
+		@Override
+		public ResourceLocation getID() {
 
-            return new FlagRecipeCondition(manager, json.getAsJsonPrimitive("flag").getAsString());
-        }
+			return location;
+		}
 
-        @Override
-        public ResourceLocation getID() {
+	}
+	// endregion
 
-            return location;
-        }
-
-    }
-    // endregion
+	@Override
+	public boolean test(IContext context) {
+		return manager.getFlag(flag);
+	}
 }

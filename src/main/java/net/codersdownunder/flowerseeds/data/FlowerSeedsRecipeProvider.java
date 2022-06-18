@@ -2,8 +2,6 @@ package net.codersdownunder.flowerseeds.data;
 
 import java.util.function.Consumer;
 
-import com.lothrazar.cyclic.registry.ItemRegistry;
-
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.codersdownunder.flowerseeds.utils.flags.FlagManager;
@@ -50,7 +48,7 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider {
 		VanillaFlowerRecipe(FlowerSeedsModFlags.FLAG_WITHERROSE, Items.WITHER_ROSE, ItemInit.WITHERROSE_SEED.get(), "witherrose", consumer);
 		
 		//Cyclic
-		CompatRecipe(FlowerSeedsModFlags.FLAG_CYANROSE, ItemRegistry.FLOWER_CYAN.get(), ItemInit.CYANROSE_SEED.get(), "cyanrose", consumer, "cyclic");
+		//CompatRecipe(FlowerSeedsModFlags.FLAG_CYANROSE, ItemRegistry.FLOWER_CYAN.get(), ItemInit.CYANROSE_SEED.get(), "cyanrose", consumer, "cyclic");
 		
 		//Terra Incognita
 		//CompatRecipe(FlowerSeedsModFlags.FLAG_ALPINE_PINK, ModBlocks.ALPINE_PINK.asItem(), ItemInit.ALPINE_PINK_SEED.get(), "alpine_pink", consumer, "terraincognita");
