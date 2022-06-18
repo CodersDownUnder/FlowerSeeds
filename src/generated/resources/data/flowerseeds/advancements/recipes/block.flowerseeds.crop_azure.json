@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "azure",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:azure_seed"
+          ]
+        },
+        "criteria": {
+          "azure": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:azure_bluet"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:azure_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "azure",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

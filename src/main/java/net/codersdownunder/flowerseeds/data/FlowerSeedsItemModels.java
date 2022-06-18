@@ -31,10 +31,10 @@ public class FlowerSeedsItemModels extends ItemModelProvider {
 	}
 	
 	public void cropmodel(String name) {
-		cropmodel1(name);
-		cropmodel2(name);
-		cropmodel3(name);
-		cropmodel4(name);
+		//cropmodel1(name);
+		//cropmodel2(name);
+		//cropmodel3(name);
+		//cropmodel4(name);
 	}
 
 	public ItemModelBuilder cropmodel1(String name) {

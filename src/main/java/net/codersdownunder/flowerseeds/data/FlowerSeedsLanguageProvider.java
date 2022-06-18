@@ -15,10 +15,12 @@ public class FlowerSeedsLanguageProvider extends LanguageProvider {
 	protected void addTranslations() {
 		
 		addBlocks();
+		addItemGroups();
 	
 	}
 
 	private void addBlocks() {
+		//Vanilla
 		addBlock(BlockInit.CROP_DANDELION, "Dandelion Seeds");
 		addBlock(BlockInit.CROP_POPPY, "Poppy Seeds");
 		addBlock(BlockInit.CROP_ORCHID, "Orchid Seeds");
@@ -32,17 +34,41 @@ public class FlowerSeedsLanguageProvider extends LanguageProvider {
 		addBlock(BlockInit.CROP_LILY, "Lily of The Valley Seeds");
 		addBlock(BlockInit.CROP_WITHERROSE, "Wither Rose Seeds");
 		addBlock(BlockInit.CROP_CORNFLOWER, "Corn Flower Seeds");
+		
+		//Cyclic
+		addBlock(BlockInit.CROP_CYANROSE, "Cyan Rose Seeds");
+		
+//		//Terra Incognita
+//		addBlock(BlockInit.CROP_ALPINE_PINK, "Alpine Pink Seeds");
+//		addBlock(BlockInit.CROP_ARCTIC_POPPY, "Arctic Poppy Seeds");
+//		addBlock(BlockInit.CROP_BLACK_IRIS, "Black Iris Seeds");
+//		addBlock(BlockInit.CROP_BLUE_IRIS, "Blue Iris Seeds");
+//		addBlock(BlockInit.CROP_BLUE_LUPINE, "Blue Lupine Seeds");
+//		addBlock(BlockInit.CROP_CHICORY, "Chicory Seeds");
+//		addBlock(BlockInit.CROP_DAFFODIL, "Daffodil Seeds");
+//		addBlock(BlockInit.CROP_DANDELION_PUFF, "Dandelion Puff Seeds");
+//		addBlock(BlockInit.CROP_EDELWEISS, "Edelweiss Seeds");
+//		addBlock(BlockInit.CROP_FIREWEED, "Fire Weed Seeds");
+//		addBlock(BlockInit.CROP_FORGET_ME_NOT, "Forget Me Not Seeds");
+//		addBlock(BlockInit.CROP_FOXGLOVE, "Fox Flove Seeds");
+//		addBlock(BlockInit.CROP_GENTIAN, "Gentian Seeds");
+//		addBlock(BlockInit.CROP_GLOBEFLOWER, "Globe Flower Seeds");
+//		addBlock(BlockInit.CROP_MAGENTA_SNAPDRAGON, "Magenta Snap Dragon Seeds");
+//		addBlock(BlockInit.CROP_MARIGOLD, "Marigold Seeds");
+//		addBlock(BlockInit.CROP_PINK_PRIMROSE, "Pink Primrose Seeds");
+//		addBlock(BlockInit.CROP_PURPLE_IRIS, "Purple Iris Seeds");
+//		addBlock(BlockInit.CROP_PURPLE_PRIMROSE, "Purple Primrose Seeds");
+//		addBlock(BlockInit.CROP_RED_SNAPDRAGON, "Red Snap Dragon Seeds");
+//		addBlock(BlockInit.CROP_SAXIFRAGE, "Saxifrage Seeds");
+//		addBlock(BlockInit.CROP_WHITE_DRYAD, "White Drayd Seeds");
+//		addBlock(BlockInit.CROP_WILD_GARLIC, "Wild Garlic Seeds");
+//		addBlock(BlockInit.CROP_YARROW, "Yarrow Seeds");
+//		addBlock(BlockInit.CROP_YELLOW_PRIMROSE, "Yellow Primrose Seeds");
+//		addBlock(BlockInit.CROP_YELLOW_SNAPDRAGON, "Yellow Snap Dragon Seeds");
 	}
-	/*
-	private void addConfig() {
-		add("testmod3.config.common.fooBar", "Foo Bar");
-		add("testmod3.config.common.exampleEnumProperty", "Example Enum Property");
-		add("testmod3.config.common.exampleMapField", "Example Map Field");
-		add("testmod3.config.client.baz", "Baz");
-		add("testmod3.config.client.subcategory.exampleSubcategoryEnumProperty", "Example Subcategory Enum Property");
-		add("testmod3.config.client.exampleNestedEnumProperty", "Example Nested Enum Property");
-		add("testmod3.config.client.chunkEnergyHUDPos", "Chunk Energy HUD Position");
-	}*/
-
+	
+	private void addItemGroups() {
+		add("itemGroup.flowerseeds", "Flower Seeds");
+	}
 
 }

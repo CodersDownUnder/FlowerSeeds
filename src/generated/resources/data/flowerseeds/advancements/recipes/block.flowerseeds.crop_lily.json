@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "lily",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:lily_seed"
+          ]
+        },
+        "criteria": {
+          "lily": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:lily_of_the_valley"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:lily_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "lily",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

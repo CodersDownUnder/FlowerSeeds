@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "tulip_orange",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds",
+        "ingredients": [
+          {
+            "tag": "forge:seeds"
+          },
+          {
+            "item": "minecraft:orange_tulip"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:tulip_orange_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

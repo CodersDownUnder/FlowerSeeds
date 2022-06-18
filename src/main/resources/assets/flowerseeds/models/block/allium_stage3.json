@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:block/crop",
+  "parent": "flowerseeds:block/stage3_template",
   "textures": {
-    "crop": "flowerseeds:blocks/allium_stage3"
+    "crop": "minecraft:block/allium"
   }
 }

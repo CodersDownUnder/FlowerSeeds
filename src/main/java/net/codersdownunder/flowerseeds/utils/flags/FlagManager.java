@@ -1,7 +1,7 @@
 package net.codersdownunder.flowerseeds.utils.flags;
 
-import net.minecraft.loot.LootConditionType;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class FlagManager {
     
 	private final Map<String, Boolean> flags = new HashMap<>();
 
-    public LootConditionType flagConditionType;
+    public LootItemConditionType flagConditionType;
 
     public FlagManager(String modId) {
 

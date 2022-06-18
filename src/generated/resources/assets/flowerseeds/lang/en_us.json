@@ -2,6 +2,7 @@
   "block.flowerseeds.crop_allium": "Allium Seeds",
   "block.flowerseeds.crop_azure": "Azure Bluet Seeds",
   "block.flowerseeds.crop_cornflower": "Corn Flower Seeds",
+  "block.flowerseeds.crop_cyanrose": "Cyan Rose Seeds",
   "block.flowerseeds.crop_dandelion": "Dandelion Seeds",
   "block.flowerseeds.crop_lily": "Lily of The Valley Seeds",
   "block.flowerseeds.crop_orchid": "Orchid Seeds",
@@ -11,5 +12,6 @@
   "block.flowerseeds.crop_tulip_pink": "Pink Tulip Seeds",
   "block.flowerseeds.crop_tulip_red": "Red Tulip Seeds",
   "block.flowerseeds.crop_tulip_white": "White Tulip Seeds",
-  "block.flowerseeds.crop_witherrose": "Wither Rose Seeds"
+  "block.flowerseeds.crop_witherrose": "Wither Rose Seeds",
+  "itemGroup.flowerseeds": "Flower Seeds"
 }

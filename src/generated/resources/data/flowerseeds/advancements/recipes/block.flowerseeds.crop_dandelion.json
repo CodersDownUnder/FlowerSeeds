@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "dandelion",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:dandelion_seed"
+          ]
+        },
+        "criteria": {
+          "dandelion": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:dandelion"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:dandelion_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "dandelion",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

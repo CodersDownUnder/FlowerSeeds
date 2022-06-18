@@ -35,6 +35,11 @@ public class FlowerSeedsModFlags {
     public static String FLAG_WITHERROSE = "witherrose";
     public static String FLAG_CORNFLOWER = "cornflower";
     
+    //Cyclic
+    public static String FLAG_CYANROSE = "cyanrose";
+
+
+
     
     /*static {
         setFlag(FLAG_COBBLESTONE, () -> FLAG_COBBLESTONE );

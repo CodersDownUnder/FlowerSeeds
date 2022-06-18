@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "flowerseeds:allium_seed",
+    "flowerseeds:azure_seed",
+    "flowerseeds:cornflower_seed",
+    "flowerseeds:cyanrose_seed",
+    "flowerseeds:dandelion_seed",
+    "flowerseeds:lily_seed",
+    "flowerseeds:orchid_seed",
+    "flowerseeds:oxeye_seed",
+    "flowerseeds:poppy_seed",
+    "flowerseeds:tulip_orange_seed",
+    "flowerseeds:tulip_pink_seed",
+    "flowerseeds:tulip_red_seed",
+    "flowerseeds:tulip_white_seed",
+    "flowerseeds:witherrose_seed"
+  ]
+}

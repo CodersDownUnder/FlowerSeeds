@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "flag": "dandelion",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds",
+        "ingredients": [
+          {
+            "tag": "forge:seeds"
+          },
+          {
+            "item": "minecraft:dandelion"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:dandelion_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

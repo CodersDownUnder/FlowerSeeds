@@ -1,6 +1,6 @@
 {
-	"parent": "block/crop",
-	"textures": {
-		"crop": "flowerseeds:blocks/dandelion_stage3"
-	}
+  "parent": "flowerseeds:block/stage3_template",
+  "textures": {
+    "crop": "minecraft:block/allium"
+  }
 }

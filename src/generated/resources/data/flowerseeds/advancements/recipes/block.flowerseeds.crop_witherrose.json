@@ -1,0 +1,46 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "flag": "witherrose",
+          "type": "flowerseeds:flag"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:witherrose_seed"
+          ]
+        },
+        "criteria": {
+          "witherrose": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "minecraft:wither_rose"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:witherrose_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "witherrose",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}
