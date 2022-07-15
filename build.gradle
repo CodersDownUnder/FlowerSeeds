@@ -118,11 +118,11 @@ repositories {
 
 dependencies {
 	
-    minecraft 'net.minecraftforge:forge:1.19-41.0.38'
+    minecraft 'net.minecraftforge:forge:1.19-41.0.98'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    compileOnly fg.deobf("mezz.jei:jei-1.19-forge-api:11.0.0.206")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.19-forge:11.0.0.206")
+    compileOnly fg.deobf("mezz.jei:jei-1.19-forge-api:11.0.0.220")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.19-forge:11.0.0.220")
 	//implementation fg.deobf("curse.maven:cyclic-239286:3819253")
 	//compileOnly fg.deobf("curse.maven:terraincognita-435386:3833932")
 	//compileOnly fg.deobf("curse.maven:cuneiform-419176:3836306")

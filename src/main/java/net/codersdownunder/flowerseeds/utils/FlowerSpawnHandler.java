@@ -30,7 +30,7 @@ public class FlowerSpawnHandler {
 		  	  FlowerSeeds.LOGGER.info("event cancelled");
 			  event.setCanceled(true);
 			  
-			  applyBoneMeal(event.getWorld(), event.getPos(), event.getBlock(), event.getStack(), event.getPlayer());
+			  applyBoneMeal(event.getLevel(), event.getPos(), event.getBlock(), event.getStack(), event.getEntity());
 		  	}		
 	}
 	
