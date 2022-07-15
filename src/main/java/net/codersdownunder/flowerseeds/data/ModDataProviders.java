@@ -24,6 +24,7 @@ public class ModDataProviders {
 	            //generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
 	            //generator.addProvider(new Items(generator, event.getExistingFileHelper()));
 	        	generator.addProvider(new FlowerSeedsLanguageProvider(generator));
+	        	//generator.addProvider(new FlowerSeedsBlockStates(generator, event.getExistingFileHelper()));
 	        	
 	        	//ItemModelProvider itemModels = new FlowerSeedsItemModels(generator, event.getExistingFileHelper());
 	            //generator.addProvider(itemModels);    
