@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:allium"
+    },
+    {
+      "item": "flowerseeds:allium_seed"
+    }
+  ],
+  "result": {
+    "item": "flowerseeds:allium_seed",
+    "count": 2
+  }
+}

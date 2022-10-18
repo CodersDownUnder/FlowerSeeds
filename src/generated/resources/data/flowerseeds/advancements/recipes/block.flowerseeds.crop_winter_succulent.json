@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:winter_succulent_seed"
+          ]
+        },
+        "criteria": {
+          "winter_succulent": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:winter_succulent"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:winter_succulent_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "winter_succulent",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

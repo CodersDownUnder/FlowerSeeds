@@ -15,17 +15,17 @@ No longer do you need to spend several hours hunting large quantities of flowers
 '''
 
 [[dependencies.flowerseeds]]
-        modId="terraincognita"
+        modId="byg"
         mandatory=false
         versionRange="[*,)"
-        ordering="BEFORE"
+        ordering="AFTER"
         side="BOTH"
 
 [[dependencies.flowerseeds]]
         modId="cyclic"
         mandatory=false
         versionRange="[*,)"
-        ordering="BEFORE"
+        ordering="AFTER"
         side="BOTH"
 
 [[dependencies.flowerseeds]] #optional

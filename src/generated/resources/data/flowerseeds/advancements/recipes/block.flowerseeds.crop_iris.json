@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:iris_seed"
+          ]
+        },
+        "criteria": {
+          "iris": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:iris"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:iris_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "iris",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

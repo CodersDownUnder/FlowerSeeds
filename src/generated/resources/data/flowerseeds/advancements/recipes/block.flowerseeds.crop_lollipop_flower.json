@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:lollipop_flower_seed"
+          ]
+        },
+        "criteria": {
+          "lollipop_flower": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:lollipop_flower"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:lollipop_flower_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "lollipop_flower",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

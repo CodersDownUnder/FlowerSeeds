@@ -1,0 +1,6 @@
+{
+  "parent": "flowerseeds:block/flower_stage_3",
+  "textures": {
+    "texture": "cyclic:blocks/flower_absalon_tulip"
+  }
+}

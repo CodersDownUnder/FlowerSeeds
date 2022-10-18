@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flowerseeds:witherrose_seed"
+    ]
+  },
+  "criteria": {
+    "witherrose_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wither_rose"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flowerseeds:witherrose_seed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "witherrose_seed",
+      "has_the_recipe"
+    ]
+  ]
+}

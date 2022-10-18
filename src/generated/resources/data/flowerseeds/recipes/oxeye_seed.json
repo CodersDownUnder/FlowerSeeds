@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:oxeye_daisy"
+    },
+    {
+      "item": "flowerseeds:oxeye_seed"
+    }
+  ],
+  "result": {
+    "item": "flowerseeds:oxeye_seed",
+    "count": 2
+  }
+}

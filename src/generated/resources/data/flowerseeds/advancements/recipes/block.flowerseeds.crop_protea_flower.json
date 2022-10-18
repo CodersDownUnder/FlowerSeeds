@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:protea_flower_seed"
+          ]
+        },
+        "criteria": {
+          "protea_flower": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:protea_flower"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:protea_flower_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "protea_flower",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

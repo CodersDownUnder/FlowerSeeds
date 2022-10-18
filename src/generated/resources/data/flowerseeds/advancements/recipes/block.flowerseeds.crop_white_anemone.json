@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "rewards": {
+          "recipes": [
+            "flowerseeds:white_anemone_seed"
+          ]
+        },
+        "criteria": {
+          "white_anemone": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:white_anemone"
+                  ]
+                }
+              ]
+            }
+          },
+          "has_the_recipe": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+              "recipe": "flowerseeds:white_anemone_seed"
+            }
+          }
+        },
+        "requirements": [
+          [
+            "white_anemone",
+            "has_the_recipe"
+          ]
+        ]
+      }
+    }
+  ]
+}

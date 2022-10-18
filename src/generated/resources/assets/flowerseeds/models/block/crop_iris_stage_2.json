@@ -1,0 +1,6 @@
+{
+  "parent": "flowerseeds:block/flower_stage_2",
+  "textures": {
+    "texture": "byg:block/iris"
+  }
+}

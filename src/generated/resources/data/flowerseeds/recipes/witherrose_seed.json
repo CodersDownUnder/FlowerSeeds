@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:wither_rose"
+    },
+    {
+      "item": "flowerseeds:witherrose_seed"
+    }
+  ],
+  "result": {
+    "item": "flowerseeds:witherrose_seed",
+    "count": 2
+  }
+}

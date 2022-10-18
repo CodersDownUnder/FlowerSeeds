@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flowerseeds:tulip_red_seed"
+    ]
+  },
+  "criteria": {
+    "tulip_red_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:red_tulip"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flowerseeds:tulip_red_seed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tulip_red_seed",
+      "has_the_recipe"
+    ]
+  ]
+}

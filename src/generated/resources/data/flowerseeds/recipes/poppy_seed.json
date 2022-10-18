@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:poppy"
+    },
+    {
+      "item": "flowerseeds:poppy_seed"
+    }
+  ],
+  "result": {
+    "item": "flowerseeds:poppy_seed",
+    "count": 2
+  }
+}

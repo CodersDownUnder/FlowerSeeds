@@ -1,0 +1,6 @@
+{
+  "parent": "flowerseeds:block/flower_stage_1",
+  "textures": {
+    "texture": "byg:block/peach_leather_flower"
+  }
+}

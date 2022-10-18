@@ -3,8 +3,19 @@
     {
       "conditions": [
         {
-          "flag": "cyanrose",
-          "type": "flowerseeds:flag"
+          "values": [
+            {
+              "modid": "cyclic",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
         }
       ],
       "advancement": {

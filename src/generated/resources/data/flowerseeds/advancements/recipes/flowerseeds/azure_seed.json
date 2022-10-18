@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flowerseeds:azure_seed"
+    ]
+  },
+  "criteria": {
+    "azure_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:azure_bluet"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flowerseeds:azure_seed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "azure_seed",
+      "has_the_recipe"
+    ]
+  ]
+}

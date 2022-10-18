@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flowerseeds:allium_seed"
+    ]
+  },
+  "criteria": {
+    "allium_seed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:allium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flowerseeds:allium_seed"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "allium_seed",
+      "has_the_recipe"
+    ]
+  ]
+}

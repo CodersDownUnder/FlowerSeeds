@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "values": [
+            {
+              "modid": "byg",
+              "type": "forge:mod_loaded"
+            },
+            {
+              "value": {
+                "type": "forge:false"
+              },
+              "type": "forge:not"
+            }
+          ],
+          "type": "forge:and"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds",
+        "ingredients": [
+          {
+            "tag": "forge:seeds"
+          },
+          {
+            "item": "byg:torch_ginger"
+          }
+        ],
+        "result": {
+          "item": "flowerseeds:torch_ginger_seed",
+          "count": 2
+        }
+      }
+    }
+  ]
+}

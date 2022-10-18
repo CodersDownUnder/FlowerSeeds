@@ -35,7 +35,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'parchment', version: '2022.06.05-1.18.2'
+    mappings channel: 'parchment', version: "${parchment_version}-${mc_version}"
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -106,10 +106,15 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-   maven {
-        // JEI
+    maven {
+        // location of the maven that hosts JEI files
         name = "Progwml6 maven"
         url = "https://dvs1.progwml6.com/files/maven/"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
     maven {
 		url "https://www.cursemaven.com"
@@ -118,15 +123,19 @@ repositories {
 
 dependencies {
 	
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.51'
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.5.5.174")
-	implementation fg.deobf("curse.maven:cyclic-239286:3819253")
-	compileOnly fg.deobf("curse.maven:terraincognita-435386:3833932")
-	compileOnly fg.deobf("curse.maven:cuneiform-419176:3836306")
-	implementation fg.deobf("curse.maven:terrablender-563928:3816497")
+    // compile against the JEI API but do not include it at runtime
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}"))
+    compileOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}"))
+    // at runtime, use the full JEI jar for Forge
+    runtimeOnly(fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}"))
+	implementation fg.deobf("curse.maven:cyclic-${cyclic_version}")
+	compileOnly fg.deobf("curse.maven:terraincognita-${terra_version}")
+	compileOnly fg.deobf("curse.maven:cuneiform-${cuneiform_version}")
+	implementation fg.deobf("curse.maven:terrablender-${blender_version}")
+    implementation fg.deobf("curse.maven:ohthebiomesyoullgo-${otbyg_version}")
 
 }
 

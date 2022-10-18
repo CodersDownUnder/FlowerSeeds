@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:cornflower"
+    },
+    {
+      "item": "flowerseeds:cornflower_seed"
+    }
+  ],
+  "result": {
+    "item": "flowerseeds:cornflower_seed",
+    "count": 2
+  }
+}
