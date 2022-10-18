@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "california_poppy": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:california_poppy"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          },
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "flowerseeds:california_poppy_seed"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          }
+        },
+        "requirements": [
+          [
+            "california_poppy",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "flowerseeds:california_poppy_seed"
+          ]
+        }
+      },
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "byg"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

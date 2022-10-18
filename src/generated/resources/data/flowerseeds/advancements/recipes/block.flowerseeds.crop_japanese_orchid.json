@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "flowerseeds:japanese_orchid_seed"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "japanese_orchid": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:japanese_orchid"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "japanese_orchid",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "flowerseeds:japanese_orchid_seed"
+          ]
+        }
+      },
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "byg"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

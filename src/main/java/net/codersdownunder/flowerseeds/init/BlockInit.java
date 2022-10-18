@@ -32,7 +32,55 @@ public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(For
 	
 	//Cyclic Support
 	public static final RegistryObject<Block> CROP_CYANROSE = BLOCKS.register("crop_cyanrose", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
-	
+	public static final RegistryObject<Block> CROP_LIME_CARNATION = BLOCKS.register("crop_lime_carnation", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PURPLE_TULIP_CYCLIC = BLOCKS.register("crop_purple_tulip_cyclic", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_ABSALON_TULIP = BLOCKS.register("crop_absalon_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+
+	//Oh the Biomes You'll Go Support
+	public static final RegistryObject<Block> CROP_HORSEWEED = BLOCKS.register("crop_horseweed", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_WINTER_SUCCULENT = BLOCKS.register("crop_winter_succulent", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_ALPINE_BELLFLOWER = BLOCKS.register("crop_alpine_bellflower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_ANGELICA = BLOCKS.register("crop_angelica", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_HYDRANGEA_BUSH = BLOCKS.register("crop_hydrangea_bush", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_BEGONIA = BLOCKS.register("crop_begonia", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_BISTORT = BLOCKS.register("crop_bistort", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_BLUE_SAGE = BLOCKS.register("crop_blue_sage", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_CALIFORNIA_POPPY = BLOCKS.register("crop_california_poppy", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_CROCUS = BLOCKS.register("crop_crocus", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_BLACK_ROSE = BLOCKS.register("crop_black_rose", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_CYAN_ROSE = BLOCKS.register("crop_cyan_rose", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_CYAN_TULIP = BLOCKS.register("crop_cyan_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_DAFFODIL = BLOCKS.register("crop_daffodil", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_FIRECRACKER_FLOWER_BUSH = BLOCKS.register("crop_firecracker_flower_bush", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_GREEN_TULIP = BLOCKS.register("crop_green_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_GUZMANIA = BLOCKS.register("crop_guzmania", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_INCAN_LILY = BLOCKS.register("crop_incan_lily", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_IRIS = BLOCKS.register("crop_iris", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_JAPANESE_ORCHID = BLOCKS.register("crop_japanese_orchid", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_KOVAN_FLOWER = BLOCKS.register("crop_kovan_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_LAZARUS_BELLFLOWER = BLOCKS.register("crop_lazarus_bellflower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_LOLLIPOP_FLOWER = BLOCKS.register("crop_lollipop_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_MAGENTA_TULIP = BLOCKS.register("crop_magenta_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_ORANGE_DAISY = BLOCKS.register("crop_orange_daisy", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_OSIRIA_ROSE = BLOCKS.register("crop_osiria_rose", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PEACH_LEATHER_FLOWER = BLOCKS.register("crop_peach_leather_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PINK_ALLIUM = BLOCKS.register("crop_pink_allium", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PINK_ANEMONE = BLOCKS.register("crop_pink_anemone", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PINK_DAFFODIL = BLOCKS.register("crop_pink_daffodil", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PROTEA_FLOWER = BLOCKS.register("crop_protea_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PURPLE_SAGE = BLOCKS.register("crop_purple_sage", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_PURPLE_TULIP = BLOCKS.register("crop_purple_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_RICHEA = BLOCKS.register("crop_richea", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_ROSE = BLOCKS.register("crop_rose", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_SILVER_VASE_FLOWER = BLOCKS.register("crop_silver_vase_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_TORCH_GINGER = BLOCKS.register("crop_torch_ginger", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_VIOLET_LEATHER_FLOWER = BLOCKS.register("crop_violet_leather_flower", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_WHITE_ANEMONE = BLOCKS.register("crop_white_anemone", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_WHITE_SAGE = BLOCKS.register("crop_white_sage", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_YELLOW_DAFFODIL = BLOCKS.register("crop_yellow_daffodil", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+	public static final RegistryObject<Block> CROP_YELLOW_TULIP = BLOCKS.register("crop_yellow_tulip", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
+
+
 //	//Terra Incognita Support
 //	public static final RegistryObject<Block> CROP_DANDELION_PUFF = BLOCKS.register("crop_dandelion_puff", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));
 //	public static final RegistryObject<Block> CROP_CHICORY = BLOCKS.register("crop_chicory", () -> new SingleCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().sound(SoundType.GRASS)));

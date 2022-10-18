@@ -1,0 +1,57 @@
+{
+  "advancements": [
+    {
+      "advancement": {
+        "parent": "minecraft:recipes/root",
+        "criteria": {
+          "has_the_recipe": {
+            "conditions": {
+              "recipe": "flowerseeds:pink_daffodil_seed"
+            },
+            "trigger": "minecraft:recipe_unlocked"
+          },
+          "pink_daffodil": {
+            "conditions": {
+              "items": [
+                {
+                  "items": [
+                    "byg:pink_daffodil"
+                  ]
+                }
+              ]
+            },
+            "trigger": "minecraft:inventory_changed"
+          }
+        },
+        "requirements": [
+          [
+            "pink_daffodil",
+            "has_the_recipe"
+          ]
+        ],
+        "rewards": {
+          "recipes": [
+            "flowerseeds:pink_daffodil_seed"
+          ]
+        }
+      },
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "byg"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

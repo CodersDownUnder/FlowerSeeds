@@ -1,0 +1,40 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "byg"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shapeless",
+        "group": "flowerseeds",
+        "ingredients": [
+          {
+            "tag": "forge:seeds"
+          },
+          {
+            "item": "byg:yellow_daffodil"
+          }
+        ],
+        "result": {
+          "count": 2,
+          "item": "flowerseeds:yellow_daffodil_seed"
+        }
+      }
+    }
+  ]
+}

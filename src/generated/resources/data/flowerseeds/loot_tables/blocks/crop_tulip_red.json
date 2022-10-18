@@ -1,8 +1,12 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
   "pools": [
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -12,15 +16,15 @@
               "type": "flowerseeds:optional_item",
               "conditions": [
                 {
-                  "condition": "minecraft:block_state_property",
                   "block": "flowerseeds:crop_tulip_red",
+                  "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
                   }
                 }
               ],
-              "weight": 2,
-              "name": "minecraft:red_tulip"
+              "name": "minecraft:red_tulip",
+              "weight": 2
             },
             {
               "type": "flowerseeds:optional_item",
@@ -28,19 +32,28 @@
             }
           ]
         }
-      ]
+      ],
+      "rolls": 1.0
     },
     {
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "flowerseeds:crop_tulip_red",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
       "entries": [
         {
           "type": "flowerseeds:optional_item",
           "functions": [
             {
-              "function": "minecraft:apply_bonus",
               "enchantment": "minecraft:fortune",
               "formula": "minecraft:binomial_with_bonus_count",
+              "function": "minecraft:apply_bonus",
               "parameters": {
                 "extra": 3,
                 "probability": 0.5714286
@@ -50,20 +63,7 @@
           "name": "flowerseeds:tulip_red_seed"
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:block_state_property",
-          "block": "flowerseeds:crop_tulip_red",
-          "properties": {
-            "age": "7"
-          }
-        }
-      ]
-    }
-  ],
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
+      "rolls": 1.0
     }
   ]
 }

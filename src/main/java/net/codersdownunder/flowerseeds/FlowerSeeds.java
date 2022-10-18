@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.codersdownunder.flowerseeds.init.ItemInit;
-import net.codersdownunder.flowerseeds.utils.flags.FlowerSeedsModFlags;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -20,73 +19,36 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod(FlowerSeeds.MODID)
 public class FlowerSeeds
 {
-    
-
 	
 	public static final String MODID = "flowerseeds";
-	public static FlowerSeedsItemGroup FLOWERSEEDS_ITEM_GROUP;
+	public static FlowerSeedsItemGroup FLOWERSEEDS_TAB;
 	public static Boolean cyclicLoaded;
-	public static Boolean terraLoaded;
+    public static Boolean OTBYGLoaded;
+	//public static Boolean terraLoaded;
 	
     @SuppressWarnings("unused")
 	public static final Logger LOGGER = LogManager.getLogger();
 
     public FlowerSeeds() {
-        
-    	//ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ConfigManager.SERVER);
 
     	
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
-        bus.addListener(this::clientSetup);
-        
-        
+
         ItemInit.ITEMS.register(bus);
         ItemInit.POOL_ENTRY_TYPES.register(bus);
         BlockInit.BLOCKS.register(bus);
-        
-        
-        //ConfigManager.loadConfig(ConfigManager.SERVER,
-		//		FMLPaths.CONFIGDIR.get().resolve(MODID + ".toml").toString());
-        
-        
-        //MinecraftForge.EVENT_BUS.register(new FlowerSpawnHandler());
+
         MinecraftForge.EVENT_BUS.register(this);
+
+        FLOWERSEEDS_TAB = new FlowerSeedsItemGroup("flowerseeds");
         
-        
-        
-        FLOWERSEEDS_ITEM_GROUP = new FlowerSeedsItemGroup("flowerseeds");
-        
-        terraLoaded = ModList.get().isLoaded("terraincognita");
+        //terraLoaded = ModList.get().isLoaded("terraincognita");
         cyclicLoaded = ModList.get().isLoaded("cyclic");
-        
-        registerFlags();
-    }
-    
-   
-    
-    private void registerFlags() {
-    	
-    	//Cobble/Stone/Obsidian
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_DANDELION, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_POPPY, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_ORCHID, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_ALLIUM, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_AZURE, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_TULIP_RED, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_TULIP_ORANGE, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_TULIP_WHITE, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_TULIP_PINK, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_OXEYE, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_LILY, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_WITHERROSE, true);
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_CORNFLOWER, true);
-    	
-    	//Cyclic
-    	FlowerSeedsModFlags.setFlag(FlowerSeedsModFlags.FLAG_CYANROSE, cyclicLoaded ? true : false);
-    	
+        OTBYGLoaded = ModList.get().isLoaded("byg");
 
     }
+
 
     private void setup(final FMLCommonSetupEvent event)
     {
@@ -114,36 +76,58 @@ public class FlowerSeeds
                 
                 //Cyclic Support
                 ComposterBlock.COMPOSTABLES.put(ItemInit.CYANROSE_SEED.get(), chance);
-                
-               
+                ComposterBlock.COMPOSTABLES.put(ItemInit.LIME_CARNATION_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PURPLE_TULIP_CYCLIC_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.ABSALON_TULIP_SEED.get(), chance);
+
+
+                ComposterBlock.COMPOSTABLES.put(ItemInit.HORSEWEED_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.WINTER_SUCCULENT_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.ALPINE_BELLFLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.ANGELICA_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.HYDRANGEA_BUSH_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.BEGONIA_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.BISTORT_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.BLUE_SAGE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.CALIFORNIA_POPPY_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.CROCUS_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.BLACK_ROSE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.CYAN_ROSE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.CYAN_TULIP_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.DAFFODIL_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.FIRECRACKER_FLOWER_BUSH_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.GREEN_TULIP_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.GUZMANIA_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.INCAN_LILY_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.IRIS_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.JAPANESE_ORCHID_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.KOVAN_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.LAZARUS_BELLFLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.LOLLIPOP_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.MAGENTA_TULIP_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.ORANGE_DAISY_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.OSIRIA_ROSE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PEACH_LEATHER_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PINK_ALLIUM_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PINK_ANEMONE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PINK_DAFFODIL_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PROTEA_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PURPLE_SAGE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.PURPLE_TULIP_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.RICHEA_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.ROSE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.SILVER_VASE_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.TORCH_GINGER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.VIOLET_LEATHER_FLOWER_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.WHITE_ANEMONE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.WHITE_SAGE_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.YELLOW_DAFFODIL_SEED.get(), chance);
+                ComposterBlock.COMPOSTABLES.put(ItemInit.YELLOW_TULIP_SEED.get(), chance);
+
 
 
             }
     	});
     }
-    
-    private void clientSetup(final FMLClientSetupEvent event)
-	{	
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_DANDELION.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_ALLIUM.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_AZURE.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_CORNFLOWER.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_LILY.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_ORCHID.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_OXEYE.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_POPPY.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_TULIP_ORANGE.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_TULIP_PINK.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_TULIP_RED.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_TULIP_WHITE.get(), RenderType.cutout()); 
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_WITHERROSE.get(), RenderType.cutout());
-		
-		//Cyclic
-		ItemBlockRenderTypes.setRenderLayer(BlockInit.CROP_CYANROSE.get(), RenderType.cutout());
-	
 
-		
-	}
-
- 
 }

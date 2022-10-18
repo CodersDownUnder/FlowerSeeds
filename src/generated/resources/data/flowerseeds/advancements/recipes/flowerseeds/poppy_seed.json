@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "flowerseeds:poppy_seed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "poppy_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:poppy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "poppy_seed",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "flowerseeds:poppy_seed"
+    ]
+  }
+}

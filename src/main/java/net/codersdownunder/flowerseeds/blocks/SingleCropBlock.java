@@ -33,38 +33,7 @@ public class SingleCropBlock extends CropBlock {
 
 	@Override
 	protected ItemLike getBaseSeedId() {
-		if (this.asBlock() == BlockInit.CROP_DANDELION.get()) {
-			return ItemInit.DANDELION_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_ALLIUM.get()) {
-			return ItemInit.ALLIUM_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_AZURE.get()) {
-			return ItemInit.AZURE_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_CORNFLOWER.get()) {
-			return ItemInit.CORNFLOWER_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_LILY.get()) {
-			return ItemInit.LILY_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_ORCHID.get()) {
-			return ItemInit.ORCHID_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_OXEYE.get()) {
-			return ItemInit.OXEYE_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_POPPY.get()) {
-			return ItemInit.POPPY_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_TULIP_RED.get()) {
-			return ItemInit.TULIP_RED_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_TULIP_ORANGE.get()) {
-			return ItemInit.TULIP_ORANGE_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_TULIP_WHITE.get()) {
-			return ItemInit.TULIP_WHITE_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_TULIP_PINK.get()) {
-			return ItemInit.TULIP_PINK_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_WITHERROSE.get()) {
-			return ItemInit.WITHERROSE_SEED.get();
-		} else if (this.asBlock() == BlockInit.CROP_CYANROSE.get()) {
-			return ItemInit.CYANROSE_SEED.get();
-		} else {
-			return Items.PAPER;
-		}
-
+		return this.asItem();
 	}
 
 	@Override

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "flowerseeds",
+  "ingredients": [
+    {
+      "item": "minecraft:white_tulip"
+    },
+    {
+      "item": "flowerseeds:tulip_white_seed"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "flowerseeds:tulip_white_seed"
+  }
+}

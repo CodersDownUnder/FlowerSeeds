@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "flowerseeds:oxeye_seed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "oxeye_seed": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oxeye_daisy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "oxeye_seed",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "flowerseeds:oxeye_seed"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "flowerseeds:block/flower_stage_2",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "texture": "minecraft:block/oxeye_daisy"
+  }
+}

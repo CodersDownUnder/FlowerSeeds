@@ -1,22 +1,10 @@
 {
   "advancements": [
     {
-      "conditions": [
-        {
-          "flag": "cyanrose",
-          "type": "flowerseeds:flag"
-        }
-      ],
       "advancement": {
         "parent": "minecraft:recipes/root",
-        "rewards": {
-          "recipes": [
-            "flowerseeds:cyanrose_seed"
-          ]
-        },
         "criteria": {
           "flower_cyan": {
-            "trigger": "minecraft:inventory_changed",
             "conditions": {
               "items": [
                 {
@@ -25,13 +13,14 @@
                   ]
                 }
               ]
-            }
+            },
+            "trigger": "minecraft:inventory_changed"
           },
           "has_the_recipe": {
-            "trigger": "minecraft:recipe_unlocked",
             "conditions": {
               "recipe": "flowerseeds:cyanrose_seed"
-            }
+            },
+            "trigger": "minecraft:recipe_unlocked"
           }
         },
         "requirements": [
@@ -39,8 +28,30 @@
             "flower_cyan",
             "has_the_recipe"
           ]
-        ]
-      }
+        ],
+        "rewards": {
+          "recipes": [
+            "flowerseeds:cyanrose_seed"
+          ]
+        }
+      },
+      "conditions": [
+        {
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "cyclic"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
+        }
+      ]
     }
   ]
 }

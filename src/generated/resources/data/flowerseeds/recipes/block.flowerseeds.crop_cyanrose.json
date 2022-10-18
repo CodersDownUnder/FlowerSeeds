@@ -4,8 +4,19 @@
     {
       "conditions": [
         {
-          "flag": "cyanrose",
-          "type": "flowerseeds:flag"
+          "type": "forge:and",
+          "values": [
+            {
+              "type": "forge:mod_loaded",
+              "modid": "cyclic"
+            },
+            {
+              "type": "forge:not",
+              "value": {
+                "type": "forge:false"
+              }
+            }
+          ]
         }
       ],
       "recipe": {
@@ -20,8 +31,8 @@
           }
         ],
         "result": {
-          "item": "flowerseeds:cyanrose_seed",
-          "count": 2
+          "count": 2,
+          "item": "flowerseeds:cyanrose_seed"
         }
       }
     }
