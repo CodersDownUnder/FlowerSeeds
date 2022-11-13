@@ -103,7 +103,7 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider implements ICondit
 	protected void VanillaFlowerRecipe(Item item, Item seed, Consumer<FinishedRecipe> consumer) {
 		ShapelessRecipeBuilder.shapeless(seed, 2)
 				.requires(item)
-				.requires(seed)
+				.requires(Tags.Items.SEEDS)
 				.group(FlowerSeeds.MODID)
 				.unlockedBy(seed.getRegistryName().getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(item))
 				.save(consumer);

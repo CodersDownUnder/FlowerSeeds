@@ -6,7 +6,7 @@
       "item": "minecraft:allium"
     },
     {
-      "item": "flowerseeds:allium_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {

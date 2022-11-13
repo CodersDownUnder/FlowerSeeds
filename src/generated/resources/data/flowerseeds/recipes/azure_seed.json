@@ -6,7 +6,7 @@
       "item": "minecraft:azure_bluet"
     },
     {
-      "item": "flowerseeds:azure_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {
