@@ -37,7 +37,7 @@ public class FlowerSeeds
     	
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(AddonLoader::onAddPackFinders);
+        //FMLJavaModLoadingContext.get().getModEventBus().addListener(AddonLoader::onAddPackFinders);
 
         ItemInit.ITEMS.register(bus);
         ItemInit.POOL_ENTRY_TYPES.register(bus);
