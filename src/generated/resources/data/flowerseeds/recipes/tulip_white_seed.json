@@ -6,7 +6,7 @@
       "item": "minecraft:white_tulip"
     },
     {
-      "item": "flowerseeds:tulip_white_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {

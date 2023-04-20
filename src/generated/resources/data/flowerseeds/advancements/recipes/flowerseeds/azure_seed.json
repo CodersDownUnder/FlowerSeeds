@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "azure_seed": {
+    "azure_bluet": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "azure_seed",
+      "azure_bluet",
       "has_the_recipe"
     ]
   ],

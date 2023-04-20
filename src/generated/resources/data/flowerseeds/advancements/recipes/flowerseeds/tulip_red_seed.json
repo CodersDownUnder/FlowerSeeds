@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "tulip_red_seed": {
+    "red_tulip": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "tulip_red_seed",
+      "red_tulip",
       "has_the_recipe"
     ]
   ],

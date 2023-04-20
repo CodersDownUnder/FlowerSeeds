@@ -6,6 +6,7 @@ modId="flowerseeds"
 version="${file.jarVersion}" 
 displayName="Flower Seeds" 
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+updateJSONURL="https://forge.curseupdate.com/445955/flowerseeds"
 logoFile="examplemod.png" #optional
 credits=""
 authors="Trhod177"

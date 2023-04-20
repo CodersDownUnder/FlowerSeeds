@@ -96,17 +96,18 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider implements ICondit
 		CompatRecipe(BYGBlocks.YELLOW_DAFFODIL.get().asItem(), ItemInit.YELLOW_DAFFODIL_SEED.get(), consumer, "byg");
 		CompatRecipe(BYGBlocks.YELLOW_TULIP.get().asItem(), ItemInit.YELLOW_TULIP_SEED.get(), consumer, "byg");
 
-
-
 	}
-	
+
+	private static String getItemName(Item item) {
+		return ForgeRegistries.ITEMS.getKey(item).getPath();
+	}
 	
 	protected void VanillaFlowerRecipe(Item item, Item seed, Consumer<FinishedRecipe> consumer) {
 		ShapelessRecipeBuilder.shapeless(seed, 2)
 				.requires(item)
-				.requires(seed)
+				.requires(Tags.Items.SEEDS)
 				.group(FlowerSeeds.MODID)
-				.unlockedBy(ForgeRegistries.ITEMS.getKey(seed).getPath(), InventoryChangeTrigger.TriggerInstance.hasItems(item))
+				.unlockedBy(getItemName(item), InventoryChangeTrigger.TriggerInstance.hasItems(item))
 				.save(consumer);
 	}
 	
@@ -115,7 +116,7 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider implements ICondit
 				.addRecipe(ShapelessRecipeBuilder.shapeless(seed, 2)
 				.requires(Tags.Items.SEEDS).requires(item)
 				.group(FlowerSeeds.MODID)
-				.unlockedBy(item.toString(), InventoryChangeTrigger.TriggerInstance.hasItems(item))
+				.unlockedBy(getItemName(item), InventoryChangeTrigger.TriggerInstance.hasItems(item))
 				::save)
 		.generateAdvancement()
 		.build(consumer, new ResourceLocation(FlowerSeeds.MODID, seed.getName(new ItemStack(seed)).getString()));

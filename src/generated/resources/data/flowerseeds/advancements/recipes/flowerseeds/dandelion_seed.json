@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "dandelion_seed": {
+    "dandelion": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "dandelion_seed",
+      "dandelion",
       "has_the_recipe"
     ]
   ],

@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "oxeye_seed": {
+    "oxeye_daisy": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "oxeye_seed",
+      "oxeye_daisy",
       "has_the_recipe"
     ]
   ],

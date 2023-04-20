@@ -2,11 +2,9 @@ package net.codersdownunder.flowerseeds.data;
 
 import net.codersdownunder.flowerseeds.data.client.FlowerSeedsBlockStates;
 import net.codersdownunder.flowerseeds.data.client.FlowerSeedsItemModels;
-import net.codersdownunder.flowerseeds.data.client.FlowerSeedsLanguageProvider;
-import net.codersdownunder.flowerseeds.data.server.FlowerSeedsBlockTags;
-import net.codersdownunder.flowerseeds.data.server.FlowerSeedsItemTags;
-import net.codersdownunder.flowerseeds.data.server.FlowerSeedsRecipeProvider;
-import net.codersdownunder.flowerseeds.data.server.LootTables;
+import net.codersdownunder.flowerseeds.data.client.lang.FlowerSeedsEN_US;
+import net.codersdownunder.flowerseeds.data.client.lang.FlowerSeedsUK_UA;
+import net.codersdownunder.flowerseeds.data.server.*;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,7 +24,8 @@ public class ModDataProviders {
 	            generator.addProvider(event.includeServer(), new LootTables(generator));
 	            generator.addProvider(event.includeClient(), new FlowerSeedsBlockStates(generator, event.getExistingFileHelper()));
 	            generator.addProvider(event.includeClient(), new FlowerSeedsItemModels(generator, event.getExistingFileHelper()));
-	        	generator.addProvider(event.includeClient(), new FlowerSeedsLanguageProvider(generator));
+	        	generator.addProvider(event.includeClient(), new FlowerSeedsEN_US(generator));
+		 		generator.addProvider(event.includeClient(), new FlowerSeedsUK_UA(generator));
 
 
 	    }

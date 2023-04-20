@@ -6,7 +6,7 @@
       "item": "minecraft:wither_rose"
     },
     {
-      "item": "flowerseeds:witherrose_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {

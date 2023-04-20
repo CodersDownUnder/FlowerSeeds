@@ -6,21 +6,30 @@ buildscript {
             url = 'https://repo.spongepowered.org/repository/maven-public/'
             content { includeGroup "org.spongepowered" }
         }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.parchmentmc:librarian:1.+'
-        
+        classpath "net.darkhax.curseforgegradle:CurseForgeGradle:1.0.11"
+        classpath "com.modrinth.minotaur:Minotaur:2.7.5"
+        //classpath files { file('../../build/libs').listFiles() }
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
+apply plugin: 'net.darkhax.curseforgegradle'
+apply plugin: "com.modrinth.minotaur"
+apply from: './gradle/property_loader.gradle'
 
 version = "${mc_version}-${mod_version}"
 group = 'net.codersdownunder.flowerseeds' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -119,6 +128,14 @@ repositories {
     maven {
         url "https://www.cursemaven.com"
     }
+
+    maven { // Thermal
+        // Human Browsable: https://nexus.covers1624.net/#browse/browse:cofh-releases
+        url 'https://maven.covers1624.net/'
+        content {
+            includeGroup 'com.teamcofh'
+        }
+    }
 }
 
 dependencies {
@@ -136,6 +153,18 @@ dependencies {
     //compileOnly fg.deobf("curse.maven:cuneiform-${cuneiform_version}")
     implementation fg.deobf("curse.maven:terrablender-${blender_version}")
     implementation fg.deobf("curse.maven:ohthebiomesyoullgo-${otbyg_version}")
+
+    implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${mc_version}:${bookshelf_version}")
+    implementation fg.deobf("net.darkhax.botanypots:BotanyPots-Forge-${mc_version}:${botanypots_version}")
+
+
+    implementation fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}")
+    implementation fg.deobf("com.teamcofh:thermal_core:${mc_version}-${thermal_core_version}")
+    implementation fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}")
+    implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}")
+
+    // run game with a few extra mods for testing
+    runtimeOnly fg.deobf("com.teamcofh:thermal_dynamics:${mc_version}-${thermal_dynamics_version}")
 
 }
 
@@ -159,6 +188,39 @@ jar {
 jar.finalizedBy('reobfJar') 
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
 //publish.dependsOn('reobfJar')
+
+task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+
+    // This token is used to authenticate with CurseForge. It should be handled
+    // with the same level of care and security as your actual password. You
+    // should never share your token with an untrusted source or publish it
+    // publicly to GitHub or embed it within a project. The best practice is to
+    // store this token in an environment variable or a build secret.
+    apiToken = findProperty('curseforge_token')
+
+
+    // Tells CurseForgeGradle to publish the output of the jar task. This will
+    // return a UploadArtifact object that can be used to further configure the
+    // file.
+    def mainFile = upload(445955, jar)
+    mainFile.changelogType = 'markdown'
+    mainFile.changelog = 'changelog.md'
+}
+
+modrinth {
+    token = findProperty("modrinth_token") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
+    projectId = "UsgvKntP" // This can be the project ID or the slug. Either will work!
+    versionType = "release" // This is the default -- can also be `beta` or `alpha`
+    uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
+    gameVersions = ["${mc_version}"] // Must be an array, even with only one version
+    loaders = ["forge"]
+    changelog = file('changelog.md').text// Must also be an array - no need to specify this if you're using Loom or ForgeGradle
+    dependencies { // A special DSL for creating dependencies
+
+        optional.version "biomesyougo"
+        optional.version "cyclic"
+    }
+}
 
 publishing {
     publications {

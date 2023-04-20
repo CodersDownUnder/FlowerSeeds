@@ -6,7 +6,7 @@
       "item": "minecraft:oxeye_daisy"
     },
     {
-      "item": "flowerseeds:oxeye_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {

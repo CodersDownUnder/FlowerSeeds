@@ -1,5 +1,8 @@
 package net.codersdownunder.flowerseeds;
 
+import net.codersdownunder.flowerseeds.events.AddonLoader;
+import net.minecraftforge.event.TagsUpdatedEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -34,6 +37,7 @@ public class FlowerSeeds
     	
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(AddonLoader::onAddPackFinders);
 
         ItemInit.ITEMS.register(bus);
         ItemInit.POOL_ENTRY_TYPES.register(bus);
@@ -48,7 +52,6 @@ public class FlowerSeeds
         OTBYGLoaded = ModList.get().isLoaded("byg");
 
     }
-
 
     private void setup(final FMLCommonSetupEvent event)
     {

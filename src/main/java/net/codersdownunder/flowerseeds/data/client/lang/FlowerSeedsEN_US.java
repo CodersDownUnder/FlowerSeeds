@@ -1,13 +1,13 @@
-package net.codersdownunder.flowerseeds.data.client;
+package net.codersdownunder.flowerseeds.data.client.lang;
 
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 
-public class FlowerSeedsLanguageProvider extends LanguageProvider {
+public class FlowerSeedsEN_US extends LanguageProvider {
 	
-	public FlowerSeedsLanguageProvider(final DataGenerator gen) {
+	public FlowerSeedsEN_US(final DataGenerator gen) {
 		super(gen, FlowerSeeds.MODID, "en_us");
 	}
 

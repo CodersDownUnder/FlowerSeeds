@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "flowerseeds:orchid_seed"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "orchid_seed": {
+    "blue_orchid": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "flowerseeds:orchid_seed"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "orchid_seed",
+      "blue_orchid",
       "has_the_recipe"
     ]
   ],

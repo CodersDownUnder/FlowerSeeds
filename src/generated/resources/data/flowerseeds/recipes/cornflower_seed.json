@@ -6,7 +6,7 @@
       "item": "minecraft:cornflower"
     },
     {
-      "item": "flowerseeds:cornflower_seed"
+      "tag": "forge:seeds"
     }
   ],
   "result": {

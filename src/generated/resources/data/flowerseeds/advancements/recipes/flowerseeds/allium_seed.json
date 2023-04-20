@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "allium_seed": {
+    "allium": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "allium_seed",
+      "allium",
       "has_the_recipe"
     ]
   ],

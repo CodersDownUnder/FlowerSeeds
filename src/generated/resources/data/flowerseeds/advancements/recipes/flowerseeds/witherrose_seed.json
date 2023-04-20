@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "witherrose_seed": {
+    "wither_rose": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "witherrose_seed",
+      "wither_rose",
       "has_the_recipe"
     ]
   ],

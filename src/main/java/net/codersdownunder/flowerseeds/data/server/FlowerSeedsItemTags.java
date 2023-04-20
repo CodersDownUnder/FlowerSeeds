@@ -3,6 +3,7 @@ package net.codersdownunder.flowerseeds.data.server;
 
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.ItemInit;
+import net.codersdownunder.flowerseeds.utils.CompatTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -22,7 +23,6 @@ public class FlowerSeedsItemTags extends ItemTagsProvider {
                 .add(ItemInit.ALLIUM_SEED.get())
                 .add(ItemInit.AZURE_SEED.get())
                 .add(ItemInit.CORNFLOWER_SEED.get())
-                .add(ItemInit.CYANROSE_SEED.get())
                 .add(ItemInit.DANDELION_SEED.get())
                 .add(ItemInit.LILY_SEED.get())
                 .add(ItemInit.ORCHID_SEED.get())
@@ -33,6 +33,16 @@ public class FlowerSeedsItemTags extends ItemTagsProvider {
                 .add(ItemInit.TULIP_RED_SEED.get())
                 .add(ItemInit.TULIP_WHITE_SEED.get())
                 .add(ItemInit.WITHERROSE_SEED.get())
+                .addOptionalTag(CompatTags.Items.CYCLIC_SEEDS.location())
+                .addOptionalTag(CompatTags.Items.BYG_SEEDS.location());
+
+        tag(CompatTags.Items.CYCLIC_SEEDS)
+                .add(ItemInit.CYANROSE_SEED.get())
+                .add(ItemInit.ABSALON_TULIP_SEED.get())
+                .add(ItemInit.PURPLE_TULIP_CYCLIC_SEED.get())
+                .add(ItemInit.LIME_CARNATION_SEED.get());
+
+        tag(CompatTags.Items.BYG_SEEDS)
                 .add(ItemInit.HORSEWEED_SEED.get())
                 .add(ItemInit.WINTER_SUCCULENT_SEED.get())
                 .add(ItemInit.ALPINE_BELLFLOWER_SEED.get())
@@ -74,16 +84,12 @@ public class FlowerSeedsItemTags extends ItemTagsProvider {
                 .add(ItemInit.WHITE_ANEMONE_SEED.get())
                 .add(ItemInit.WHITE_SAGE_SEED.get())
                 .add(ItemInit.YELLOW_DAFFODIL_SEED.get())
-                .add(ItemInit.YELLOW_TULIP_SEED.get())
-                .add(ItemInit.LIME_CARNATION_SEED.get())
-                .add(ItemInit.PURPLE_TULIP_CYCLIC_SEED.get())
-                .add(ItemInit.ABSALON_TULIP_SEED.get());
+                .add(ItemInit.YELLOW_TULIP_SEED.get());
 
         tag(Tags.Items.CROPS)
                 .add(ItemInit.ALLIUM_SEED.get())
                 .add(ItemInit.AZURE_SEED.get())
                 .add(ItemInit.CORNFLOWER_SEED.get())
-                .add(ItemInit.CYANROSE_SEED.get())
                 .add(ItemInit.DANDELION_SEED.get())
                 .add(ItemInit.LILY_SEED.get())
                 .add(ItemInit.ORCHID_SEED.get())
@@ -94,6 +100,16 @@ public class FlowerSeedsItemTags extends ItemTagsProvider {
                 .add(ItemInit.TULIP_RED_SEED.get())
                 .add(ItemInit.TULIP_WHITE_SEED.get())
                 .add(ItemInit.WITHERROSE_SEED.get())
+                .addOptionalTag(CompatTags.Items.CYCLIC_CROPS.location())
+                .addOptionalTag(CompatTags.Items.BYG_CROPS.location());
+
+        tag(CompatTags.Items.CYCLIC_CROPS)
+                .add(ItemInit.CYANROSE_SEED.get())
+                .add(ItemInit.ABSALON_TULIP_SEED.get())
+                .add(ItemInit.PURPLE_TULIP_CYCLIC_SEED.get())
+                .add(ItemInit.LIME_CARNATION_SEED.get());
+
+        tag(CompatTags.Items.BYG_CROPS)
                 .add(ItemInit.HORSEWEED_SEED.get())
                 .add(ItemInit.WINTER_SUCCULENT_SEED.get())
                 .add(ItemInit.ALPINE_BELLFLOWER_SEED.get())
@@ -135,10 +151,7 @@ public class FlowerSeedsItemTags extends ItemTagsProvider {
                 .add(ItemInit.WHITE_ANEMONE_SEED.get())
                 .add(ItemInit.WHITE_SAGE_SEED.get())
                 .add(ItemInit.YELLOW_DAFFODIL_SEED.get())
-                .add(ItemInit.YELLOW_TULIP_SEED.get())
-                .add(ItemInit.LIME_CARNATION_SEED.get())
-                .add(ItemInit.PURPLE_TULIP_CYCLIC_SEED.get())
-                .add(ItemInit.ABSALON_TULIP_SEED.get());
+                .add(ItemInit.YELLOW_TULIP_SEED.get());
 
     }
 

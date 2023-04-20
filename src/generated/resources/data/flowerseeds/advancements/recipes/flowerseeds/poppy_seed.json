@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "poppy_seed": {
+    "poppy": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "poppy_seed",
+      "poppy",
       "has_the_recipe"
     ]
   ],

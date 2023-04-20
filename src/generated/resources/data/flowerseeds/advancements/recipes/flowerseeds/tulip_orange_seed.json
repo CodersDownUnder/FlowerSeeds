@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "tulip_orange_seed": {
+    "orange_tulip": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "tulip_orange_seed",
+      "orange_tulip",
       "has_the_recipe"
     ]
   ],
