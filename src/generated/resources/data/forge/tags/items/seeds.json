@@ -16,10 +16,6 @@
     {
       "id": "#cyclic:seeds",
       "required": false
-    },
-    {
-      "id": "#byg:seeds",
-      "required": false
     }
   ]
 }

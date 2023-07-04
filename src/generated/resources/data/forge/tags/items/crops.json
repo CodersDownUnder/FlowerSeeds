@@ -16,10 +16,6 @@
     {
       "id": "#cyclic:crops",
       "required": false
-    },
-    {
-      "id": "#byg:crops",
-      "required": false
     }
   ]
 }

@@ -8,14 +8,16 @@ import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
@@ -25,13 +27,13 @@ import potionstudios.byg.common.block.BYGBlocks;
 public class FlowerSeedsRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
 	
-	public FlowerSeedsRecipeProvider(DataGenerator generatorIn) {
-		super(generatorIn);
+	public FlowerSeedsRecipeProvider(PackOutput packOutput) {
+		super(packOutput);
 		
 	}
 	
 	@Override
-	public void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+	public void buildRecipes(Consumer<FinishedRecipe> consumer) {
 		
 		VanillaFlowerRecipe(Items.DANDELION, ItemInit.DANDELION_SEED.get(), consumer);
 		VanillaFlowerRecipe(Items.POPPY, ItemInit.POPPY_SEED.get(), consumer);
@@ -103,7 +105,7 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider implements ICondit
 	}
 	
 	protected void VanillaFlowerRecipe(Item item, Item seed, Consumer<FinishedRecipe> consumer) {
-		ShapelessRecipeBuilder.shapeless(seed, 2)
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, seed, 2)
 				.requires(item)
 				.requires(Tags.Items.SEEDS)
 				.group(FlowerSeeds.MODID)
@@ -113,7 +115,7 @@ public class FlowerSeedsRecipeProvider extends RecipeProvider implements ICondit
 	
 	protected void CompatRecipe(Item item, Item seed, Consumer<FinishedRecipe> consumer, String modid) {
 		ConditionalRecipe.builder().addCondition(and(modLoaded(modid), not(FALSE())))
-				.addRecipe(ShapelessRecipeBuilder.shapeless(seed, 2)
+				.addRecipe(ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, seed, 2)
 				.requires(Tags.Items.SEEDS).requires(item)
 				.group(FlowerSeeds.MODID)
 				.unlockedBy(getItemName(item), InventoryChangeTrigger.TriggerInstance.hasItems(item))

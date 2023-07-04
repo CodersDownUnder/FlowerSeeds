@@ -1,21 +1,16 @@
 package net.codersdownunder.flowerseeds;
 
-import net.codersdownunder.flowerseeds.events.AddonLoader;
-import net.minecraftforge.event.TagsUpdatedEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.codersdownunder.flowerseeds.data.ModDataProviders;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.codersdownunder.flowerseeds.init.ItemInit;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -24,7 +19,7 @@ public class FlowerSeeds
 {
 	
 	public static final String MODID = "flowerseeds";
-	public static FlowerSeedsItemGroup FLOWERSEEDS_TAB;
+	//public static FlowerSeedsItemGroup FLOWERSEEDS_TAB;
 	public static Boolean cyclicLoaded;
     public static Boolean OTBYGLoaded;
 	//public static Boolean terraLoaded;
@@ -44,8 +39,7 @@ public class FlowerSeeds
         BlockInit.BLOCKS.register(bus);
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        FLOWERSEEDS_TAB = new FlowerSeedsItemGroup("flowerseeds");
+       // FLOWERSEEDS_TAB = new FlowerSeedsItemGroup("flowerseeds");
         
         //terraLoaded = ModList.get().isLoaded("terraincognita");
         cyclicLoaded = ModList.get().isLoaded("cyclic");

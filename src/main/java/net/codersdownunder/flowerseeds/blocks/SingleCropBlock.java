@@ -1,16 +1,14 @@
 package net.codersdownunder.flowerseeds.blocks;
 
-import net.codersdownunder.flowerseeds.init.BlockInit;
-import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.BlockGetter;
+import org.jetbrains.annotations.NotNull;
 
 
 public class SingleCropBlock extends CropBlock {
@@ -32,12 +30,12 @@ public class SingleCropBlock extends CropBlock {
 	
 
 	@Override
-	protected ItemLike getBaseSeedId() {
+	protected @NotNull ItemLike getBaseSeedId() {
 		return this.asItem();
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext context) {
+	public @NotNull VoxelShape getShape(BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, @NotNull CollisionContext context) {
 		return SHAPES[state.getValue(this.getAgeProperty())];
 	}
 

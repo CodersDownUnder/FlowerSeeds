@@ -4,6 +4,7 @@ import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.blocks.SingleCropBlock;
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -11,10 +12,12 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
+
 public class FlowerSeedsBlockStates extends BlockStateProvider {
 
-    public FlowerSeedsBlockStates(DataGenerator gen, ExistingFileHelper helper) {
-        super(gen, FlowerSeeds.MODID, helper);
+    public FlowerSeedsBlockStates(PackOutput packOutput, ExistingFileHelper helper) {
+        super(packOutput, FlowerSeeds.MODID, helper);
     }
 
     @Override
@@ -87,7 +90,7 @@ public class FlowerSeedsBlockStates extends BlockStateProvider {
 
     public void makeCompatCrop(CropBlock block, String modid, String textureName) {
 
-        String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
+        String blockName = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
 
         ModelFile stage_0 = models().withExistingParent(blockName + "_stage_0", modLoc("block/flower_stage_0"))
                 .texture("texture",  new ResourceLocation(modid, textureName)).renderType("minecraft:cutout_mipped");
@@ -143,7 +146,7 @@ public class FlowerSeedsBlockStates extends BlockStateProvider {
 
     public void makeCrop(CropBlock block, String modid, String textureName) {
 
-        String blockName = ForgeRegistries.BLOCKS.getKey(block).getPath();
+        String blockName = Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
 
         ModelFile stage_0 = models().withExistingParent(blockName + "_stage_0", modLoc("block/flower_stage_0"))
                 .texture("texture",  new ResourceLocation(modid, "block/" + textureName)).renderType("minecraft:cutout_mipped");

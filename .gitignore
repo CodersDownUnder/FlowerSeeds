@@ -16,7 +16,6 @@ out
 # gradle
 build
 .gradle
-secrets.json
 
 # other
 eclipse
@@ -24,3 +23,4 @@ run
 
 # Files from Forge MDK
 forge*changelog.txt
+secrets.json

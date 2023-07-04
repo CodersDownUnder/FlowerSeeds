@@ -2,22 +2,21 @@ package net.codersdownunder.flowerseeds.data.server;
 
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.BlockInit;
-import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.codersdownunder.flowerseeds.utils.CompatTags;
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraftforge.data.event.GatherDataEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class FlowerSeedsBlockTags extends BlockTagsProvider {
 
-    public FlowerSeedsBlockTags(DataGenerator generator, ExistingFileHelper helper) {
-        super(generator, FlowerSeeds.MODID, helper);
+    public FlowerSeedsBlockTags(GatherDataEvent event) {
+        super(event.getGenerator().getPackOutput(), event.getLookupProvider(), FlowerSeeds.MODID, event.getExistingFileHelper());
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
        tag(BlockTags.CROPS)
                .add(BlockInit.CROP_ALLIUM.get())
                .add(BlockInit.CROP_AZURE.get())
@@ -32,62 +31,62 @@ public class FlowerSeedsBlockTags extends BlockTagsProvider {
                .add(BlockInit.CROP_TULIP_RED.get())
                .add(BlockInit.CROP_TULIP_WHITE.get())
                .add(BlockInit.CROP_WITHERROSE.get())
-               .addOptionalTag(CompatTags.Blocks.CYCLIC_CROPS.location())
-               .addOptionalTag(CompatTags.Blocks.BYG_CROPS.location());
+               .addOptionalTag(CompatTags.Blocks.CYCLIC_CROPS.location());
+               //.addOptionalTag(CompatTags.Blocks.BYG_CROPS.location());
 
        tag(CompatTags.Blocks.CYCLIC_CROPS)
                .add(BlockInit.CROP_CYANROSE.get())
                .add(BlockInit.CROP_ABSALON_TULIP.get())
                .add(BlockInit.CROP_PURPLE_TULIP_CYCLIC.get())
                .add(BlockInit.CROP_LIME_CARNATION.get());
-
-       tag(CompatTags.Blocks.BYG_CROPS)
-               .add(BlockInit.CROP_HORSEWEED.get())
-               .add(BlockInit.CROP_WINTER_SUCCULENT.get())
-               .add(BlockInit.CROP_ALPINE_BELLFLOWER.get())
-               .add(BlockInit.CROP_ANGELICA.get())
-               .add(BlockInit.CROP_HYDRANGEA_BUSH.get())
-               .add(BlockInit.CROP_BEGONIA.get())
-               .add(BlockInit.CROP_BISTORT.get())
-               .add(BlockInit.CROP_BLUE_SAGE.get())
-               .add(BlockInit.CROP_CALIFORNIA_POPPY.get())
-               .add(BlockInit.CROP_CROCUS.get())
-               .add(BlockInit.CROP_BLACK_ROSE.get())
-               .add(BlockInit.CROP_CYAN_ROSE.get())
-               .add(BlockInit.CROP_CYAN_TULIP.get())
-               .add(BlockInit.CROP_DAFFODIL.get())
-               .add(BlockInit.CROP_FIRECRACKER_FLOWER_BUSH.get())
-               .add(BlockInit.CROP_GREEN_TULIP.get())
-               .add(BlockInit.CROP_GUZMANIA.get())
-               .add(BlockInit.CROP_INCAN_LILY.get())
-               .add(BlockInit.CROP_IRIS.get())
-               .add(BlockInit.CROP_JAPANESE_ORCHID.get())
-               .add(BlockInit.CROP_KOVAN_FLOWER.get())
-               .add(BlockInit.CROP_LAZARUS_BELLFLOWER.get())
-               .add(BlockInit.CROP_LOLLIPOP_FLOWER.get())
-               .add(BlockInit.CROP_MAGENTA_TULIP.get())
-               .add(BlockInit.CROP_ORANGE_DAISY.get())
-               .add(BlockInit.CROP_OSIRIA_ROSE.get())
-               .add(BlockInit.CROP_PEACH_LEATHER_FLOWER.get())
-               .add(BlockInit.CROP_PINK_ALLIUM.get())
-               .add(BlockInit.CROP_PINK_ANEMONE.get())
-               .add(BlockInit.CROP_PINK_DAFFODIL.get())
-               .add(BlockInit.CROP_PROTEA_FLOWER.get())
-               .add(BlockInit.CROP_PURPLE_SAGE.get())
-               .add(BlockInit.CROP_PURPLE_TULIP.get())
-               .add(BlockInit.CROP_RICHEA.get())
-               .add(BlockInit.CROP_ROSE.get())
-               .add(BlockInit.CROP_SILVER_VASE_FLOWER.get())
-               .add(BlockInit.CROP_TORCH_GINGER.get())
-               .add(BlockInit.CROP_VIOLET_LEATHER_FLOWER.get())
-               .add(BlockInit.CROP_WHITE_ANEMONE.get())
-               .add(BlockInit.CROP_WHITE_SAGE.get())
-               .add(BlockInit.CROP_YELLOW_DAFFODIL.get())
-               .add(BlockInit.CROP_YELLOW_TULIP.get());
+//
+//       tag(CompatTags.Blocks.BYG_CROPS)
+//               .add(BlockInit.CROP_HORSEWEED.get())
+//               .add(BlockInit.CROP_WINTER_SUCCULENT.get())
+//               .add(BlockInit.CROP_ALPINE_BELLFLOWER.get())
+//               .add(BlockInit.CROP_ANGELICA.get())
+//               .add(BlockInit.CROP_HYDRANGEA_BUSH.get())
+//               .add(BlockInit.CROP_BEGONIA.get())
+//               .add(BlockInit.CROP_BISTORT.get())
+//               .add(BlockInit.CROP_BLUE_SAGE.get())
+//               .add(BlockInit.CROP_CALIFORNIA_POPPY.get())
+//               .add(BlockInit.CROP_CROCUS.get())
+//               .add(BlockInit.CROP_BLACK_ROSE.get())
+//               .add(BlockInit.CROP_CYAN_ROSE.get())
+//               .add(BlockInit.CROP_CYAN_TULIP.get())
+//               .add(BlockInit.CROP_DAFFODIL.get())
+//               .add(BlockInit.CROP_FIRECRACKER_FLOWER_BUSH.get())
+//               .add(BlockInit.CROP_GREEN_TULIP.get())
+//               .add(BlockInit.CROP_GUZMANIA.get())
+//               .add(BlockInit.CROP_INCAN_LILY.get())
+//               .add(BlockInit.CROP_IRIS.get())
+//               .add(BlockInit.CROP_JAPANESE_ORCHID.get())
+//               .add(BlockInit.CROP_KOVAN_FLOWER.get())
+//               .add(BlockInit.CROP_LAZARUS_BELLFLOWER.get())
+//               .add(BlockInit.CROP_LOLLIPOP_FLOWER.get())
+//               .add(BlockInit.CROP_MAGENTA_TULIP.get())
+//               .add(BlockInit.CROP_ORANGE_DAISY.get())
+//               .add(BlockInit.CROP_OSIRIA_ROSE.get())
+//               .add(BlockInit.CROP_PEACH_LEATHER_FLOWER.get())
+//               .add(BlockInit.CROP_PINK_ALLIUM.get())
+//               .add(BlockInit.CROP_PINK_ANEMONE.get())
+//               .add(BlockInit.CROP_PINK_DAFFODIL.get())
+//               .add(BlockInit.CROP_PROTEA_FLOWER.get())
+//               .add(BlockInit.CROP_PURPLE_SAGE.get())
+//               .add(BlockInit.CROP_PURPLE_TULIP.get())
+//               .add(BlockInit.CROP_RICHEA.get())
+//               .add(BlockInit.CROP_ROSE.get())
+//               .add(BlockInit.CROP_SILVER_VASE_FLOWER.get())
+//               .add(BlockInit.CROP_TORCH_GINGER.get())
+//               .add(BlockInit.CROP_VIOLET_LEATHER_FLOWER.get())
+//               .add(BlockInit.CROP_WHITE_ANEMONE.get())
+//               .add(BlockInit.CROP_WHITE_SAGE.get())
+//               .add(BlockInit.CROP_YELLOW_DAFFODIL.get())
+//               .add(BlockInit.CROP_YELLOW_TULIP.get());
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "FlowerSeeds Tags";
     }
 }

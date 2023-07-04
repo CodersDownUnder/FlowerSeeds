@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
@@ -27,7 +28,7 @@ public final class OptionalLootItem extends LootPoolSingletonContainer
     }
 
     @Override
-    protected void createItemStack(Consumer<ItemStack> stackConsumer, LootContext lootContext)
+    protected void createItemStack(Consumer<ItemStack> stackConsumer, @NotNull LootContext lootContext)
     {
         stackConsumer.accept(new ItemStack(this.item));
     }
@@ -40,12 +41,12 @@ public final class OptionalLootItem extends LootPoolSingletonContainer
     }
 
     @Override
-    public LootPoolEntryType getType() { return ItemInit.OPTIONAL_LOOT_ITEM.get(); }
+    public @NotNull LootPoolEntryType getType() { return ItemInit.OPTIONAL_LOOT_ITEM.get(); }
 
     public static class Serializer extends LootPoolSingletonContainer.Serializer<OptionalLootItem>
     {
         @Override
-        public void serializeCustom(JsonObject object, OptionalLootItem loot, JsonSerializationContext ctx)
+        public void serializeCustom(@NotNull JsonObject object, @NotNull OptionalLootItem loot, @NotNull JsonSerializationContext ctx)
         {
             super.serializeCustom(object, loot, ctx);
 
@@ -58,7 +59,7 @@ public final class OptionalLootItem extends LootPoolSingletonContainer
         }
 
         @Override
-        protected OptionalLootItem deserialize(JsonObject object, JsonDeserializationContext ctx, int weight, int quality, LootItemCondition[] conditions, LootItemFunction[] functions)
+        protected @NotNull OptionalLootItem deserialize(JsonObject object, @NotNull JsonDeserializationContext ctx, int weight, int quality, LootItemCondition @NotNull [] conditions, LootItemFunction @NotNull [] functions)
         {
             if (!object.has("name") || !object.get("name").isJsonPrimitive())
             {

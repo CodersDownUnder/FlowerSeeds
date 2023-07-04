@@ -3,18 +3,17 @@ package net.codersdownunder.flowerseeds.data.client;
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.packs.PackType;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 public class FlowerSeedsItemModels extends ItemModelProvider {
 
-	public FlowerSeedsItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-		super(generator, FlowerSeeds.MODID, existingFileHelper);
+	public FlowerSeedsItemModels(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+		super(packOutput, FlowerSeeds.MODID, existingFileHelper);
 	}
 
 	@Override
@@ -84,12 +83,12 @@ public class FlowerSeedsItemModels extends ItemModelProvider {
 	}
 
 	@Override
-	public String getName() {
+	public @NotNull String getName() {
 		return "FlowerSeeds Item Models";
 	}
 
-	private ItemModelBuilder oneLayerItem(final Item item) {
-		return withExistingParent(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), "item/generated")
+	private void oneLayerItem(final Item item) {
+		withExistingParent(ForgeRegistries.ITEMS.getKey(item.asItem()).getPath(), "item/generated")
 				.texture("layer0", modLoc("item/seed"));
 	}
 

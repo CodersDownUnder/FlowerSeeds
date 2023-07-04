@@ -1,5 +1,6 @@
 package net.codersdownunder.flowerseeds.data.server;
 
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.lothrazar.cyclic.registry.ItemRegistry;
@@ -9,7 +10,8 @@ import net.codersdownunder.flowerseeds.blocks.SingleCropBlock;
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.codersdownunder.flowerseeds.init.ItemInit;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -24,10 +26,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import potionstudios.byg.common.block.BYGBlocks;
 
 
-public class ModBlockLootTables extends BlockLoot {
-    
-        @Override
-        public void addTables() {
+public class ModBlockLootTables extends BlockLootSubProvider {
+    public ModBlockLootTables() {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    }
+
+    @Override
+        public void generate() {
 
             add(BlockInit.CROP_ALLIUM.get(), FlowerLootTableBuilder(BlockInit.CROP_ALLIUM.get(), Items.ALLIUM, ItemInit.ALLIUM_SEED.get()));
             add(BlockInit.CROP_AZURE.get(), FlowerLootTableBuilder(BlockInit.CROP_AZURE.get(), Items.AZURE_BLUET, ItemInit.AZURE_SEED.get()));
@@ -94,7 +99,7 @@ public class ModBlockLootTables extends BlockLoot {
 
         }
         
-        protected static Builder FlowerLootTableBuilder(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem) {
+        protected Builder FlowerLootTableBuilder(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem) {
         	LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
             		.hasBlockStateProperties(pCropBlock).setProperties(StatePropertiesPredicate.Builder
             				.properties().hasProperty(SingleCropBlock.AGE, 7));
@@ -102,7 +107,7 @@ public class ModBlockLootTables extends BlockLoot {
         }
 
         
-        protected static LootTable.Builder FlowerSeedsCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
+        protected LootTable.Builder FlowerSeedsCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropCondition) {
             return applyExplosionDecay(pCropBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(OptionalLootItem.lootTableItem(pGrownCropItem).setWeight(2).when(pDropGrownCropCondition).otherwise(OptionalLootItem.lootTableItem(pSeedsItem)))).withPool(LootPool.lootPool().when(pDropGrownCropCondition).add(OptionalLootItem.lootTableItem(pSeedsItem).apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3)))));
          }
 

@@ -3,12 +3,13 @@ package net.codersdownunder.flowerseeds.data.client.lang;
 import net.codersdownunder.flowerseeds.FlowerSeeds;
 import net.codersdownunder.flowerseeds.init.BlockInit;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class FlowerSeedsUK_UA extends LanguageProvider {
 
-    public FlowerSeedsUK_UA(final DataGenerator gen) {
-        super(gen, FlowerSeeds.MODID, "uk_ua");
+    public FlowerSeedsUK_UA(PackOutput packOutput) {
+        super(packOutput, FlowerSeeds.MODID, "uk_ua");
     }
 
     @Override

@@ -1,71 +1,75 @@
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url = 'https://maven.parchmentmc.org' }
-        maven {
-            url = 'https://repo.spongepowered.org/repository/maven-public/'
-            content { includeGroup "org.spongepowered" }
-        }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'org.parchmentmc:librarian:1.+'
-        classpath "net.darkhax.curseforgegradle:CurseForgeGradle:1.0.11"
-        classpath "com.modrinth.minotaur:Minotaur:2.7.5"
-        //classpath files { file('../../build/libs').listFiles() }
-    }
-}
+import java.nio.file.Files
+import java.util.stream.Collectors
+import java.util.stream.Stream
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
-apply from: 'https://raw.githubusercontent.com/SizableShrimp/Forge-Class-Remapper/main/classremapper.gradle'
-apply plugin: 'net.darkhax.curseforgegradle'
-apply plugin: "com.modrinth.minotaur"
-apply from: './gradle/property_loader.gradle'
+plugins {
+    id 'eclipse'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
+    //id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+}
 
 version = "${mc_version}-${mod_version}"
 group = 'net.codersdownunder.flowerseeds' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'flowerseeds'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17) // Need this here so eclipse task generates correctly.
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+sourceSets {
+    packs {
+        compileClasspath += main.output
+        resources {
+            srcDir 'src/packs/generated'
+            exclude '**/.cache/**'
+        }
+    }
+}
+
+
+println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   Snapshot are built nightly.
-    // stable_#            Stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
+    // The mappings can be changed at any time and must be in the following format.
+    // Channel:   Version:
+    // official   MCVersion             Official field/method names from Mojang mapping files
+    // parchment  YYYY.MM.DD-MCVersion  Open community-sourced parameter names and javadocs layered on top of official
+    //
+    // You must be aware of the Mojang license when using the 'official' or 'parchment' mappings.
+    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
+    //
+    // Parchment is an unofficial project maintained by ParchmentMC, separate from MinecraftForge
+    // Additional setup is needed to use their mappings: https://parchmentmc.org/docs/getting-started
+    //
+    // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'parchment', version: "${parchment_version}-${mc_version}"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
-    
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    //mappings channel: 'parchment', version: "${parchment_version}-${mc_version}"
+    mappings channel: 'official', version: '1.19.4'
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
             workingDirectory project.file('run')
-			
-			property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             // Recommended logging data for a userdev environment
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            // The markers can be added/remove as needed separated by commas.
+            // "SCAN": For mods scan.
+            // "REGISTRIES": For firing of registry events.
+            // "REGISTRYDUMP": For getting the contents of all registries.
+            property 'forge.logging.markers', 'REGISTRIES'
 
             // Recommended logging level for the console
+            // You can set various levels here.
+            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
+            // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
+            property 'forge.enabledGameTestNamespaces', 'flowerseeds'
+
             mods {
-                examplemod {
+                flowerseeds {
                     source sourceSets.main
                 }
             }
@@ -74,11 +78,30 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            // Recommended logging data for a userdev environment
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'REGISTRIES'
 
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'flowerseeds'
+
+            mods {
+                flowerseeds {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        // This run config launches GameTestServer and runs all registered gametests, then exits.
+        // By default, the server will crash when no gametests are provided.
+        // The gametest system is also enabled by default for other run configs under the /test command.
+        gameTestServer {
+            workingDirectory project.file('run')
+
+            property 'forge.logging.markers', 'REGISTRIES'
+
+            property 'forge.logging.console.level', 'debug'
+
+            property 'forge.enabledGameTestNamespaces', 'flowerseeds'
 
             mods {
                 examplemod {
@@ -87,28 +110,75 @@ minecraft {
             }
         }
 
+        final dataArgs = ['--mod', 'flowerseeds', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')]
+
         data {
             workingDirectory project.file('run')
-            
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
-            // Recommended logging data for a userdev environment
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.markers', 'REGISTRIES'
 
-            // Recommended logging level for the console
             property 'forge.logging.console.level', 'debug'
 
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'flowerseeds', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args dataArgs
 
             mods {
-                examplemod {
+                flowerseeds {
                     source sourceSets.main
+                }
+            }
+        }
+
+        packsGen {
+            parent data
+            jvmArg '-Dflowerseeds.enableDPGeneration=true'
+
+            mods {
+                flowerseeds {
+                    source sourceSets.main
+                    source sourceSets.packs
+                }
+            }
+            jvmArg "-Dflowerseeds.baseOut=${file('src/packs/generated/')}"
+
+            afterEvaluate {
+                getArgs().removeIf { it in dataArgs }
+                args '--mod', 'flowerseeds', '--all', '--output', file('build/datagenTemp/'),
+                        '--existing', file('src/main/resources/')
+
+                for (final pack : file('src/packs/resources').listFiles()) {
+                    if (!pack.path.contains('META-INF'))
+                        args '--existing', pack
                 }
             }
         }
     }
+}
+tasks.jarJar.enabled = true
+
+findPacks().each { f ->
+    final packTask = tasks.create("create${f.capitalize()}Pack", Zip) {
+        group = 'build'
+        dependsOn('processPacksResources')
+        from file("src/packs/resources/${f}")
+        from(file("src/packs/generated/${f}")) {
+            exclude '.cache/**'
+        }
+        archiveName = "${f}flowerseedsPack.zip"
+        destinationDirectory = project.file('build/libs/packs')
+    }
+    processResources {
+        dependsOn(packTask)
+        from(packTask.archiveFile.get()) {
+            into 'builtinPacks/'
+        }
+    }
+}
+
+List<String> findPacks() {
+    Stream.of(file('src/packs/generated').listFiles())
+            .filter { it.isDirectory() }
+            .map { it.name }
+            .toList()
 }
 
 // Include resources generated by data generators.
@@ -129,18 +199,20 @@ repositories {
         url "https://www.cursemaven.com"
     }
 
-    maven { // Thermal
-        // Human Browsable: https://nexus.covers1624.net/#browse/browse:cofh-releases
-        url 'https://maven.covers1624.net/'
+    maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
         content {
-            includeGroup 'com.teamcofh'
+            includeGroup "maven.modrinth"
         }
     }
 }
 
 dependencies {
-
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    //minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // compile against the JEI API but do not include it at runtime
@@ -157,70 +229,38 @@ dependencies {
     implementation fg.deobf("net.darkhax.bookshelf:Bookshelf-Forge-${mc_version}:${bookshelf_version}")
     implementation fg.deobf("net.darkhax.botanypots:BotanyPots-Forge-${mc_version}:${botanypots_version}")
 
-
-    implementation fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}")
-    implementation fg.deobf("com.teamcofh:thermal_core:${mc_version}-${thermal_core_version}")
-    implementation fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}")
-    implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}")
-
-    // run game with a few extra mods for testing
-    runtimeOnly fg.deobf("com.teamcofh:thermal_dynamics:${mc_version}-${thermal_dynamics_version}")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${mc_version}:${geckolib_version}")
+    implementation fg.deobf("maven.modrinth:corgilib:${mc_version}-${corgilib_version}-forge")
+//    implementation fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}")
+//    implementation fg.deobf("com.teamcofh:thermal_core:${mc_version}-${thermal_core_version}")
+//    implementation fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}")
+//    implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}")
+//
+//    // run game with a few extra mods for testing
+//    runtimeOnly fg.deobf("com.teamcofh:thermal_dynamics:${mc_version}-${thermal_dynamics_version}")
 
 }
 
-// Example for how to get properties into the manifest for reading by the runtime..
+// Example for how to get properties into the manifest for reading at runtime.
 jar {
     manifest {
         attributes([
-            "Specification-Title": "examplemod",
-            "Specification-Vendor": "examplemodsareus",
-            "Specification-Version": "1", // We are version 1 of ourselves
-            "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"examplemodsareus",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : "examplemod",
+                "Specification-Vendor"    : "examplemodsareus",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "examplemodsareus",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 }
 
-// Example configuration to allow publishing using the maven-publish task
+// Example configuration to allow publishing using the maven-publish plugin
 // This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar') 
+jar.finalizedBy('reobfJar')
 // However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
-
-task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-
-    // This token is used to authenticate with CurseForge. It should be handled
-    // with the same level of care and security as your actual password. You
-    // should never share your token with an untrusted source or publish it
-    // publicly to GitHub or embed it within a project. The best practice is to
-    // store this token in an environment variable or a build secret.
-    apiToken = findProperty('curseforge_token')
-
-
-    // Tells CurseForgeGradle to publish the output of the jar task. This will
-    // return a UploadArtifact object that can be used to further configure the
-    // file.
-    def mainFile = upload(445955, jar)
-    mainFile.changelogType = 'markdown'
-    mainFile.changelog = 'changelog.md'
-}
-
-modrinth {
-    token = findProperty("modrinth_token") // This is the default. Remember to have the MODRINTH_TOKEN environment variable set or else this will fail, or set it to whatever you want - just make sure it stays private!
-    projectId = "UsgvKntP" // This can be the project ID or the slug. Either will work!
-    versionType = "release" // This is the default -- can also be `beta` or `alpha`
-    uploadFile = jar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-    gameVersions = ["${mc_version}"] // Must be an array, even with only one version
-    loaders = ["forge"]
-    changelog = file('changelog.md').text// Must also be an array - no need to specify this if you're using Loom or ForgeGradle
-    dependencies { // A special DSL for creating dependencies
-
-        optional.version "biomesyougo"
-        optional.version "cyclic"
-    }
-}
+// publish.dependsOn('reobfJar')
 
 publishing {
     publications {
@@ -230,7 +270,11 @@ publishing {
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
